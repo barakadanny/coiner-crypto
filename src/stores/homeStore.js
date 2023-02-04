@@ -15,7 +15,7 @@ const homeStore = create((set) => ({
             princeBtc: coins.item.price_btc
         }
     })
-    console.log(coins)
+    set({coins})
   }
 }))
 
