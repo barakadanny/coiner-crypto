@@ -20,10 +20,15 @@ const showStore = create((set) => ({
         })
 
         console.log(dataRes.data)
-        const { name, symbol, image} = dataRes.data;
+        const { name, symbol, image, market_data, market_Cap_rank} = dataRes.data;
         const imageLarge = image.large
-        
-        set({ graphData, name, symbol, imageLarge });
+        const high24h = market_data.high_24h.usd;
+        const low24h = market_data.low_24h.usd
+        const circulatingSupply = market_data.circulating_supply
+        const currentPrice = market_data.current_price.usd
+        const priceChangePercentage = market_data.price_change_percentage_1y.toFixed(2)
+
+        set({ graphData, name, symbol, imageLarge, high24h, market_Cap_rank, low24h, circulatingSupply, currentPrice, priceChangePercentage });
 
     }
 
