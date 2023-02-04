@@ -4,6 +4,7 @@ import debounce from '../helpers/debounce'
 
 const homeStore = create((set) => ({
   coins: [],
+  trending: [],
   query: '',
 
   setQuery: (e) => {
@@ -12,16 +13,25 @@ const homeStore = create((set) => ({
   },
 
   searchCoins: debounce( async () => {
-    const { query } = homeStore.getState()
-    const res = await axios.get('https://api.coingecko.com/api/v3/search?query=${query}')
-    // const res = await axios.get('https://api.coingecko.com/api/v3/search?query=${query}&per_page=100&page=1&sparkline=false')
-    console.log(res)
-    // const filteredCoins = coins.filter(coin => coin.name.toLowerCase().includes(query.toLowerCase()))
-    // set({coins: filteredCoins})
+    const { query, trending } = homeStore.getState()
+    if (query.length > 2 ) {
+        const res = await axios.get(`https://api.coingecko.com/api/v3/search?query=${query}`)
+        const coins = res.data.coins.map(coins => {
+            return {
+                name: coins.name,
+                image: coins.large,
+                id: coins.id,
+            }
+        })
+        set({coins});
+    } else {
+        set({coins: trending})
+    }
+
   }, 500),
 
   fetchCoins: async () => {
-    const res = await axios.get('https://api.coingecko.com/api/v3/search/trending')
+    const res = await axios.get(`https://api.coingecko.com/api/v3/search/trending`)
 
     const coins = res.data.coins.map(coins => {
         return {
@@ -31,7 +41,7 @@ const homeStore = create((set) => ({
             princeBtc: coins.item.price_btc
         }
     })
-    set({coins})
+    set({coins, trending: coins})
   }
 }))
 
