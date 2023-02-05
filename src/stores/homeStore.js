@@ -36,15 +36,19 @@ const homeStore = create((set) => ({
       axios.get(`https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd`)
     ])
 
+    const btcPrice = btcRes.data.bitcoin.usd;
+    console.log(btcPrice)
 
     const coins = res.data.coins.map(coins => {
         return {
             name: coins.item.name,
             image: coins.item.large,
             id: coins.item.id,
-            princeBtc: coins.item.price_btc
+            princeBtc: coins.item.price_btc.toFixed(10),
+            proceUsd: (coins.item.price_btc * btcPrice).toFixed(10)
         }
     })
+    console.log(coins)
     set({coins, trending: coins})
   }
 }))
