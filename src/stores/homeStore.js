@@ -44,8 +44,8 @@ const homeStore = create((set) => ({
             name: coins.item.name,
             image: coins.item.large,
             id: coins.item.id,
-            princeBtc: coins.item.price_btc.toFixed(10),
-            proceUsd: (coins.item.price_btc * btcPrice).toFixed(10)
+            priceBtc: coins.item.price_btc.toFixed(10),
+            priceUsd: (coins.item.price_btc * btcPrice).toFixed(10)
         }
     })
     console.log(coins)
