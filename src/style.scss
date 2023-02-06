@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.custom-maxWidth {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 92%;
+}
+
+.header {
+    color: white;
+
+    h1{
+        letter-spacing: 2px;
+    }
+}
