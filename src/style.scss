@@ -8,10 +8,20 @@
   padding: 0;
 }
 
+body {
+  background-color: #f9fafb;
+}
+
 .custom-maxWidth {
   max-width: 1200px;
   margin: 0 auto;
   width: 92%;
+}
+
+.custom-maxWidthItem{
+  max-width: 750px;
+  margin: 0 auto;
+  width: 92%;  
 }
 
 .header {
