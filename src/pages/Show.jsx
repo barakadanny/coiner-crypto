@@ -2,7 +2,7 @@ import { React, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import showStore from '../stores/showStore'
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-
+import Header from '../components/Header';
 
 function Show() {
   const store = showStore()
@@ -16,6 +16,7 @@ function Show() {
 
   return (
     <div>
+      <Header back />
       <header>
          <img src={store.imageLarge} alt="" />
         <h2>{store.name} ({store.symbol})</h2>
