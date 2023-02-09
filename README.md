@@ -61,9 +61,9 @@ Here's why:
 
 ### Built With
 
-* React js
+* [React js](https://reactjs.org/)
 * [React router](https://reactrouter.com/en/main)
-* [Classname](https://www.npmjs.com/package/classnames)
+* [Classnames](https://www.npmjs.com/package/classnames)
 * [Coin Gecko API](https://www.coingecko.com/en/api)
 * [zustand](https://github.com/pmndrs/zustand) for state management
 * [Axios](https://github.com/axios/axios)
