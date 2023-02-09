@@ -51,7 +51,7 @@ https://user-images.githubusercontent.com/53088629/217908542-4ce12413-aec2-4072-
 Coiner Crypto is a platform which help you Track crypto prices in real-time with a user-friendly Interface
 
 Here's why:
-* Easy to user
+* Easy to use
 * Access to the latest update for Coins
 
 
